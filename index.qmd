@@ -1,7 +1,9 @@
 ---
 title: "Phuong Anh Nguyen"
 ---
+![](images/converted_image.jpg){width=250px}
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I'm originally from Vietnam and completed my bachelor's degree in International Business Administration in the Netherlands before returning home. Since then, I've worked for almost six years as a Data Analyst. I joined the MDS program to get a proper, structured education in data science and modelling, and to build the skills and experience needed to work in a new environment abroad, ideally in Canada.
+
+

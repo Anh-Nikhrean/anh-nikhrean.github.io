@@ -4,13 +4,34 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "I’m originally from Vietnam and completed my bachelor’s degree in International Business Administration in the Netherlands before returning home. Since then, I’ve worked for almost six years as a Data Analyst."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I’m originally from Vietnam and completed my bachelor’s degree in International Business Administration in the Netherlands before returning home. Since then, I’ve worked for almost six years as a Data Analyst."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why Data Science",
+    "text": "Why Data Science\nI joined the MDS program to get a more structured education in data science and modelling, and to build the skills and experience needed to work in a new environment abroad, ideally in Canada."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of Data Science",
+    "text": "Outside of Data Science\nOutside of studying, I enjoy going to the gym, swimming, and spending time with friends and family. I also love travelling and exploring new places whenever I get the chance."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Phuong Anh Nguyen",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "I’m originally from Vietnam and completed my bachelor’s degree in International Business Administration in the Netherlands before returning home. Since then, I’ve worked for almost six years as a Data Analyst. I joined the MDS program to get a proper, structured education in data science and modelling, and to build the skills and experience needed to work in a new environment abroad, ideally in Canada."
   }
 ]

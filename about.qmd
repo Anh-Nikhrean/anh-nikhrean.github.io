@@ -2,4 +2,15 @@
 title: "About"
 ---
 
-About this site
+## Background
+
+I'm originally from Vietnam and completed my bachelor's degree in International Business Administration in the Netherlands before returning home. Since then, I've worked for almost six years as a Data Analyst.
+
+## Why Data Science
+
+I joined the MDS program to get a more structured education in data science and modelling, and to build the skills and experience needed to work in a new environment abroad, ideally in Canada.
+
+## Outside of Data Science
+
+Outside of studying, I enjoy going to the gym, swimming, and spending time with friends and family. I also love travelling and exploring new places whenever I get the chance.
+
