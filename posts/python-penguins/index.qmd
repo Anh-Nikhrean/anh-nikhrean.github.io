@@ -6,9 +6,13 @@ date: "2026-09-24"
 
 This post will explore the Palmer Penguins dataset using Python.
 
-Data source: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/)
+## Data source
 
-The ```palmerpenguins``` data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica.
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/)
+
+The dataset contains measurements of Adelie, Chinstrap, and Gentoo penguins from the Palmer Archipelago in Antarctica. The data are available under a CC0 licence.
+
+**Citation:** Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. https://doi.org/10.5281/zenodo.3960218
 
 ## Load the data
 
