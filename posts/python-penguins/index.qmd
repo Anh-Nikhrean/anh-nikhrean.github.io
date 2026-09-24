@@ -3,3 +3,119 @@ title: "Penguin Body Mass by Species"
 author: "Anh Nguyen"
 date: "2026-09-24"
 ---
+
+This post will explore the Palmer Penguins dataset using Python.
+
+Data source: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/)
+
+The ```palmerpenguins``` data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica.
+
+## Load the data
+
+```{python}
+#| label: load-data
+#| warning: false
+
+from palmerpenguins import load_penguins
+import pandas as pd
+import matplotlib.pyplot as plt
+
+penguins = load_penguins()
+
+penguins
+```
+
+The first few rows show that the dataset contains information such as species, island, bill length and depth, flipper length, body mass, sex, and year. It also has 344 records.
+
+## Sex distribution across years
+
+Next, I examine whether the distribution of male and female penguins changes across the years represented in the dataset.
+
+```{python}
+#| label: sex-distribution-python
+
+sex_distribution = (
+    penguins
+    .dropna(subset=["sex"])
+    .groupby(["year", "sex"])
+    .size()
+    .unstack(fill_value=0)
+)
+
+sex_distribution
+```
+
+This table shows the number of male and female penguins recorded in each year. We can also see that there are records throughout 3 years: 2007, 2008, and 2009
+
+To make comparisons across years easier, I also calculate the proportion of each sex within each year.
+
+```{python}
+#| label: sex-proportion-python
+
+sex_proportion = (
+    sex_distribution
+    .div(sex_distribution.sum(axis=1), axis=0)
+    .round(3)
+)
+
+sex_proportion
+```
+
+The proportions make it easier to compare the sex distribution across years even when the total number of observations is different.
+
+The male and female proportions remain fairly balanced overall with slight changes from year to year.
+
+## Compare species
+
+Next, I calculate the average body mass and flipper length for each species.
+
+```{python}
+#| label: summarize-python
+
+species_summary = (
+    penguins
+    .groupby("species")
+    .agg(
+        average_body_mass_g=("body_mass_g", "mean"),
+        average_flipper_length_mm=("flipper_length_mm", "mean"),
+        number_of_penguins=("species", "size")
+    )
+    .round(2)
+)
+
+species_summary
+```
+
+The summary shows clear differences among the three species.
+
+Gentoo penguins have the highest average body mass and the longest average flipper length. Adelie penguins are generally smaller, while Chinstrap penguins fall between the other two species for several measurements.
+
+## Relationship between bill length and body mass
+
+From the average table above, we can see that there might be a correlation between penguins' measurements. Here, I will examine the relationship between bill length and body mass though a scatterplot.
+
+```{python}
+#| label: fig-bill-mass-python
+#| fig-cap: "Relationship between bill length and body mass for the three Palmer penguin species."
+
+for species in penguins["species"].dropna().unique():
+    subset = penguins[penguins["species"] == species]
+
+    plt.scatter(
+        subset["bill_length_mm"],
+        subset["body_mass_g"],
+        label=species,
+        s=40
+    )
+
+plt.xlabel("Bill length (mm)")
+plt.ylabel("Body mass (g)")
+plt.legend(title="Species")
+plt.show()
+```
+
+The scatter plot shows that the three species form distinct groups.
+
+Gentoo penguins generally have greater body mass, while Chinstrap and Adelie penguins tend to have lower body mass. Bill length also differs across species.
+
+Within each species, there appears to be some positive relationship between bill length and body mass, although the strength of the relationship varies with Chinstrap seems to have the weakest relationship.
