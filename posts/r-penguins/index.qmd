@@ -1,7 +1,7 @@
 ---
 title: "Penguin Body Mass by Species"
 author: "Anh Nguyen"
-date: "2026-09-24"
+date: "2026-09-24T17:30:00"
 ---
 
 This post will explore the Palmer Penguins dataset using R.

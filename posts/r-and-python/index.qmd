@@ -1,7 +1,7 @@
 ---
 title: "Using R and Python Together"
 author: "Anh Nguyen"
-date: "2026-09-24"
+date: "2026-09-24T17:45:00"
 ---
 
 This post demonstrates how R and Python can be used together in a single Quarto document.
