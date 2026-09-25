@@ -140,7 +140,7 @@ The computational posts use the
 [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/),
 which contains measurements of Adelie, Chinstrap, and Gentoo penguins from the Palmer Archipelago in Antarctica.
 
-The data are available under a **CC0 licence ("No Rights Reserved")**. The R and Python posts access the dataset through the `palmerpenguins` package rather than downloading a separate CSV file during rendering. :contentReference[oaicite:1]{index=1}
+The data are available under a **CC0 licence ("No Rights Reserved")**. The R and Python posts access the dataset through the `palmerpenguins` package rather than downloading a separate CSV file during rendering.
 
 ### Dataset citation
 
@@ -194,7 +194,7 @@ The source files are the `.qmd` files. The generated website files are written t
 To test the project from a completely fresh clone, clone it into a temporary directory:
 
 ```bash
-git clone git@github.com:USERNAME/USERNAME.github.io.git ~/tmp/m3-test
+git clone git@github.com:Anh-Nikhrean/anh-nikhrean.github.io.git ~/tmp/m3-test
 cd ~/tmp/m3-test
 ```
 

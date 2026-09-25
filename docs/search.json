@@ -25,7 +25,14 @@
     "href": "posts/r-penguins/index.html",
     "title": "Penguin Body Mass by Species",
     "section": "",
-    "text": "This post will explore the Palmer Penguins dataset using R.\nData source: Palmer Penguins\nThe palmerpenguins data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica."
+    "text": "This post will explore the Palmer Penguins dataset using R."
+  },
+  {
+    "objectID": "posts/r-penguins/index.html#data-source",
+    "href": "posts/r-penguins/index.html#data-source",
+    "title": "Penguin Body Mass by Species",
+    "section": "Data source",
+    "text": "Data source\nData: Palmer Penguins\nThe dataset contains measurements of Adelie, Chinstrap, and Gentoo penguins from the Palmer Archipelago in Antarctica. The data are available under a CC0 licence.\nCitation: Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218"
   },
   {
     "objectID": "posts/r-penguins/index.html#load-the-data",
@@ -60,7 +67,14 @@
     "href": "posts/python-penguins/index.html",
     "title": "Penguin Body Mass by Species",
     "section": "",
-    "text": "This post will explore the Palmer Penguins dataset using Python.\nData source: Palmer Penguins\nThe palmerpenguins data contains size measurements for three penguin species observed on three islands in the Palmer Archipelago, Antarctica."
+    "text": "This post will explore the Palmer Penguins dataset using Python."
+  },
+  {
+    "objectID": "posts/python-penguins/index.html#data-source",
+    "href": "posts/python-penguins/index.html#data-source",
+    "title": "Penguin Body Mass by Species",
+    "section": "Data source",
+    "text": "Data source\nData: Palmer Penguins\nThe dataset contains measurements of Adelie, Chinstrap, and Gentoo penguins from the Palmer Archipelago in Antarctica. The data are available under a CC0 licence.\nCitation: Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218"
   },
   {
     "objectID": "posts/python-penguins/index.html#load-the-data",
