@@ -3,6 +3,7 @@
     "listing": "/blog.html",
     "items": [
       "/posts/r-penguins/index.html",
+      "/posts/r-and-python/index.html",
       "/posts/python-penguins/index.html",
       "/posts/first-weeks/index.html"
     ]

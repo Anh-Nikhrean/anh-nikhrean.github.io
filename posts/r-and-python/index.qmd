@@ -1,0 +1,67 @@
+---
+title: "Using R and Python Together"
+author: "Anh Nguyen"
+date: "2026-09-24"
+---
+
+This post demonstrates how R and Python can be used together in a single Quarto document.
+
+I first calculate average penguin body mass by species in R, pass that result to Python, convert the averages from grams to kilograms in Python, and then pass the result back to R.
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/)
+
+**Citation:** Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). *palmerpenguins: Palmer Archipelago (Antarctica) penguin data*. https://doi.org/10.5281/zenodo.3960218
+
+## Calculate average body mass in R
+
+```{r}
+#| label: calculate-r
+#| message: false
+#| warning: false
+
+library(palmerpenguins)
+library(dplyr)
+library(reticulate)
+
+species_mass <- penguins |>
+  group_by(species) |>
+  summarise(
+    mean_mass_g = mean(body_mass_g, na.rm = TRUE)
+  )
+
+species_mass
+```
+
+R calculates the average body mass of each penguin species in grams.
+
+## Pass the R result to Python
+
+The R object `species_mass` can be accessed from Python using `r.species_mass`.
+
+```{python}
+#| label: transform-python
+
+species_mass_python = r.species_mass
+
+species_mass_python["mean_mass_kg"] = (
+    species_mass_python["mean_mass_g"] / 1000
+)
+
+species_mass_python
+```
+
+Python receives the result computed in R and adds a new column containing the average body mass in kilograms.
+
+## Pass the Python result back to R
+
+The Python object can now be accessed from R using `py$species_mass_python`.
+
+```{r}
+#| label: return-to-r
+
+final_table <- py$species_mass_python
+
+final_table
+```
+
+The final table was therefore produced through both languages: R calculated the original summary, Python transformed it, and R retrieved the transformed result.

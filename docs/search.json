@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Penguin Body Mass by Species\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nAnh Nguyen\n\n\n\n\n\n\n\n\n\n\n\n\nPenguin Body Mass by Species\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nAnh Nguyen\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 10, 2026\n\n\nPhuong Anh Nguyen\n\n\n\n\n\nNo matching items"
+    "text": "Penguin Body Mass by Species\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nAnh Nguyen\n\n\n\n\n\n\n\n\n\n\n\n\nUsing R and Python Together\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nAnh Nguyen\n\n\n\n\n\n\n\n\n\n\n\n\nPenguin Body Mass by Species\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nAnh Nguyen\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 10, 2026\n\n\nPhuong Anh Nguyen\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -14,11 +14,32 @@
     "text": "I’m originally from Vietnam and completed my bachelor’s degree in International Business Administration in the Netherlands before returning home. Since then, I’ve worked for almost six years as a Data Analyst. I joined the MDS program to get a proper, structured education in data science and modelling, and to build the skills and experience needed to work in a new environment abroad, ideally in Canada."
   },
   {
-    "objectID": "posts/first-weeks/index.html",
-    "href": "posts/first-weeks/index.html",
-    "title": "My first weeks in MDS",
+    "objectID": "posts/r-and-python/index.html",
+    "href": "posts/r-and-python/index.html",
+    "title": "Using R and Python Together",
     "section": "",
-    "text": "My first week in the MDS program was both exciting and very informative. The orientation days covered almost every aspect of the program, from the overall structure and academic expectations to students’ physical and mental well-being, as well as career opportunities after graduation. I also found the IT helpdesk hours very useful, especially for getting everything set up at the beginning.\nAt the same time, the first week felt a little overwhelming. There were many classes, deadlines, worksheets, lab submissions, and new tools to keep track of, so it took some time to adjust to the pace of the program.\nFortunately, the instructors and TAs have been very helpful and approachable whenever I had questions. Although there is still a lot to get used to, I am starting to become more familiar with the workload and how the program is organized.\n\n\n\nOrientation day on campus."
+    "text": "This post demonstrates how R and Python can be used together in a single Quarto document.\nI first calculate average penguin body mass by species in R, pass that result to Python, convert the averages from grams to kilograms in Python, and then pass the result back to R.\nData: Palmer Penguins\nCitation: Horst, A. M., Hill, A. P., & Gorman, K. B. (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. https://doi.org/10.5281/zenodo.3960218"
+  },
+  {
+    "objectID": "posts/r-and-python/index.html#calculate-average-body-mass-in-r",
+    "href": "posts/r-and-python/index.html#calculate-average-body-mass-in-r",
+    "title": "Using R and Python Together",
+    "section": "Calculate average body mass in R",
+    "text": "Calculate average body mass in R\n\nlibrary(palmerpenguins)\nlibrary(dplyr)\nlibrary(reticulate)\n\nspecies_mass &lt;- penguins |&gt;\n  group_by(species) |&gt;\n  summarise(\n    mean_mass_g = mean(body_mass_g, na.rm = TRUE)\n  )\n\nspecies_mass\n\n# A tibble: 3 × 2\n  species   mean_mass_g\n  &lt;fct&gt;           &lt;dbl&gt;\n1 Adelie          3701.\n2 Chinstrap       3733.\n3 Gentoo          5076.\n\n\nR calculates the average body mass of each penguin species in grams."
+  },
+  {
+    "objectID": "posts/r-and-python/index.html#pass-the-r-result-to-python",
+    "href": "posts/r-and-python/index.html#pass-the-r-result-to-python",
+    "title": "Using R and Python Together",
+    "section": "Pass the R result to Python",
+    "text": "Pass the R result to Python\nThe R object species_mass can be accessed from Python using r.species_mass.\n\nspecies_mass_python = r.species_mass\n\nspecies_mass_python[\"mean_mass_kg\"] = (\n    species_mass_python[\"mean_mass_g\"] / 1000\n)\n\nspecies_mass_python\n\n     species  mean_mass_g  mean_mass_kg\n0     Adelie  3700.662252      3.700662\n1  Chinstrap  3733.088235      3.733088\n2     Gentoo  5076.016260      5.076016\n\n\nPython receives the result computed in R and adds a new column containing the average body mass in kilograms."
+  },
+  {
+    "objectID": "posts/r-and-python/index.html#pass-the-python-result-back-to-r",
+    "href": "posts/r-and-python/index.html#pass-the-python-result-back-to-r",
+    "title": "Using R and Python Together",
+    "section": "Pass the Python result back to R",
+    "text": "Pass the Python result back to R\nThe Python object can now be accessed from R using py$species_mass_python.\n\nfinal_table &lt;- py$species_mass_python\n\nfinal_table\n\n    species mean_mass_g mean_mass_kg\n1    Adelie    3700.662     3.700662\n2 Chinstrap    3733.088     3.733088\n3    Gentoo    5076.016     5.076016\n\n\nThe final table was therefore produced through both languages: R calculated the original summary, Python transformed it, and R retrieved the transformed result."
   },
   {
     "objectID": "posts/r-penguins/index.html",
@@ -61,6 +82,13 @@
     "title": "Penguin Body Mass by Species",
     "section": "Relationship between bill length and body mass",
     "text": "Relationship between bill length and body mass\nFrom the average table above, we can see that there might be a correlation between penguins’ measurements. Here, I will examine the relationship between bill length and body mass though a scatterplot.\n\npenguins_original &lt;- ggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_length_mm,\n    y = body_mass_g,\n    colour = species\n  )\n) +\n  geom_point(size = 2) +\n  xlab(\"Bill length (mm)\") +\n  ylab(\"Body mass (g)\") +\n  theme_bw() +\n  theme(text = element_text(size = 18))\n\npenguins_original\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nFigure 1: Relationship between bill length and body mass for the three Palmer penguin species.\n\n\n\n\n\nThe scatter plot shows that the three species form distinct groups.\nGentoo penguins generally have greater body mass, while Chinstrap and Adelie penguins tend to have lower body mass. Bill length also differs across species.\nWithin each species, there appears to be some positive relationship between bill length and body mass, although the strength of the relationship varies with Chinstrap seems to have the weakest relationship."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "My first week in the MDS program was both exciting and very informative. The orientation days covered almost every aspect of the program, from the overall structure and academic expectations to students’ physical and mental well-being, as well as career opportunities after graduation. I also found the IT helpdesk hours very useful, especially for getting everything set up at the beginning.\nAt the same time, the first week felt a little overwhelming. There were many classes, deadlines, worksheets, lab submissions, and new tools to keep track of, so it took some time to adjust to the pace of the program.\nFortunately, the instructors and TAs have been very helpful and approachable whenever I had questions. Although there is still a lot to get used to, I am starting to become more familiar with the workload and how the program is organized.\n\n\n\nOrientation day on campus."
   },
   {
     "objectID": "posts/python-penguins/index.html",
